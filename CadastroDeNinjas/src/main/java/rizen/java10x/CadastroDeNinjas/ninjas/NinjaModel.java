@@ -1,6 +1,9 @@
-package rizen.java10x.CadastroDeNinjas;
+package rizen.java10x.CadastroDeNinjas.ninjas;
 
 import jakarta.persistence.*;
+import rizen.java10x.CadastroDeNinjas.missoes.MissoesModel;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -11,6 +14,10 @@ public class NinjaModel {
     private String name;
     private String email;
     private int age;
+    @ManyToOne
+    @Column(name = "missoes")
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
